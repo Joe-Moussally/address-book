@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import Login from './components/pages/Login';
+import Login from './pages/Login';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
