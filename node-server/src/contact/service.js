@@ -8,4 +8,18 @@ async function add(body) {
         email,
         location
     } = body
+
+    const contact = new Contact({
+        name,
+        number,
+        status,
+        email,
+        location
+    })
+
+    return await contact.save()
 }
+
+module.exports = {
+    add
+  }

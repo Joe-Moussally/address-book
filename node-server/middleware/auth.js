@@ -7,11 +7,10 @@ function authMiddleware() {
         
         const token = req.headers.authorization
         try {
-            let verify = jwt.verify('token',secret)
+            jwt.verify(token,secret)
             next()
         }catch(err) {
-            console.log('err')
-            return res.status(400).send('not authorized')
+            return res.status(405).send('not authorized')
         }
         
     } 
