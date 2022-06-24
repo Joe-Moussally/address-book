@@ -8,7 +8,6 @@ const Contacts = () => {
 
     //fetch all contacts
     useEffect(()=>{
-        
         axios({
             headers:{
                 authorization: localStorage.getItem('token')
@@ -28,7 +27,11 @@ const Contacts = () => {
                 <h1>My Contacts</h1>
 
                 <div id="contacts-container">
-                    <Contact />
+                    {
+                        contacts.map(contact => (
+                            <Contact info={contact}/>
+                        ))
+                    }
                 </div>
 
             </div>
