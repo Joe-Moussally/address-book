@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const userRouter = require('./src/user')
+const contactRouter = require('./src/contact')
 
 const url = 'mongodb://127.0.0.1:27017/address_book';
 
@@ -23,5 +24,6 @@ app.use(cors())
 app.use(express.json());
 
 app.use('/api/user',userRouter)
+app.use('/api/contact',contactRouter)
 
 app.listen(27017, () => console.log('Server running'));

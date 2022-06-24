@@ -6,12 +6,13 @@ async function createUser(body, hashedPassword) {
         name,
         email,
     } = body
+    const password = hashedPassword
 
     //create the user
     const user = new User({
         name,
         email,
-        password: hashedPassword})
+        password})
     return await user.save();
 }
 
