@@ -26,7 +26,7 @@ const Contacts = () => {
 
                 <h1>My Contacts</h1>
 
-                <div id="contacts-container">
+                <div>
                     {
                         contacts.map(contact => (
                             <Contact info={contact} key={contact._id}/>

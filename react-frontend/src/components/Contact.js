@@ -1,7 +1,7 @@
 const Contact = (props) => {
 
     return ( 
-        <>
+        <div className="contact-card">
             <h2>{props.info.name}</h2>
 
             <div className="info-container">
@@ -10,7 +10,7 @@ const Contact = (props) => {
                 <div><span className="info-titles">-Relationship Status</span> <i>{props.info.status}</i></div>
 
             </div>
-        </>
+        </div>
      );
 }
  
