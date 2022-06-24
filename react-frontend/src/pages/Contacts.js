@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
+import Contact from "../components/Contact"
 
 const Contacts = () => {
 
@@ -16,6 +17,7 @@ const Contacts = () => {
             url: 'http://localhost:27017/api/contact'
         }).then((Response) => {
             console.log(Response.data.contacts)
+            setContacts(Response.data.contacts)
         })
     },[])
 
@@ -24,6 +26,10 @@ const Contacts = () => {
             <div id="contacts-container" className="container">
 
                 <h1>My Contacts</h1>
+
+                <div id="contacts-container">
+                    <Contact />
+                </div>
 
             </div>
         </>
