@@ -9,13 +9,15 @@ const { add } = require('./service')
 async function addContact(req, res) {
 
     try {
-        const result = await add(req.body)
-        console.log(result)
+        const headers = req.headers
+
+        const result = await add(req.body,headers)
+        console.log(req.headers)
         return res.status(200).send({
             result: result
         })
     } catch (err) {
-        console.log('error')
+        console.log(err)
     }
     
 
