@@ -21,7 +21,7 @@ async function register(req, res) {
         const salt = await bcrypt.genSalt(5)
         const hashPassword = await bcrypt.hash(req.body.password,salt)
 
-        const addedUser = await createUser(req.body)
+        const addedUser = await createUser(req.body, hashPassword)
         console.log('result => ',addedUser)
 
         //create token
@@ -44,4 +44,33 @@ async function register(req, res) {
 
 }
 
-module.exports = { register };
+//funtion to handle login
+async function login(req, res) {
+
+    try {
+        const user = await getUserByEmail(req.body.email)
+        
+        //if user doesn't exist
+        if(!user) return res.status(400).send('invalid credentials')
+
+        //check for password
+        const validPassword = await bcrypt.compare(req.body.password, user.password);
+        if (!validPassword) return res.status(400).send('invalid credentials');
+
+        const token = jwt.sign(
+            {_id: user._id, name: user.name, email: user.email},
+            TOKEN_SECRET
+        )
+
+        return res.header('auth-token', token).send(token)
+
+    } catch(err) {
+
+        console.log(err)
+        res.status(500).send(error)
+
+    }
+
+}
+
+module.exports = { register, login };
