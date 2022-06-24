@@ -1,5 +1,5 @@
 const Contact = (props) => {
-    console.log(props.info)
+
     return ( 
         <>
             <h2>{props.info.name}</h2>

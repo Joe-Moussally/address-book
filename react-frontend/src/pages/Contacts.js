@@ -4,7 +4,7 @@ import Contact from "../components/Contact"
 
 const Contacts = () => {
 
-    const [contacts,setContacts] = useState('')
+    const [contacts,setContacts] = useState([])
 
     //fetch all contacts
     useEffect(()=>{
@@ -29,7 +29,7 @@ const Contacts = () => {
                 <div id="contacts-container">
                     {
                         contacts.map(contact => (
-                            <Contact info={contact}/>
+                            <Contact info={contact} key={contact._id}/>
                         ))
                     }
                 </div>
