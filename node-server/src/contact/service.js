@@ -26,6 +26,11 @@ async function add(body,headers) {
     return await contact.save()
 }
 
+async function getContacts(userId) {
+    return Contact.find({userId: userId})
+}
+ 
 module.exports = {
-    add
+    add,
+    getContacts
   }
