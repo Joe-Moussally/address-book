@@ -1,7 +1,10 @@
+import Map from "./Map";
+
 const Contact = (props) => {
 
     let url = 'https://maps.google.com/maps?q='+props.info.location.lg+','+props.info.location.lt+'&hl=en&z=14&amp;output=embed'
-    console.log(url)
+    console.log(document.getElementsByClassName('maps'))
+    
     return ( 
         <div className="contact-card">
 
@@ -13,7 +16,9 @@ const Contact = (props) => {
                 <div><span className="info-titles">-Relationship Status</span> <i>{props.info.status}</i></div>
             </div>
 
-            <iframe src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250"></iframe>
+            <Map lat={props.info.location.lt} lng={props.info.location.lg}/>
+
+            <iframe className="maps" src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250" frameBorder="0" scrolling="no"></iframe>
             {/* <iframe 
   width="300" 
   height="170" 

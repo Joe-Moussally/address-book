@@ -1,3 +1,5 @@
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import Contact from "../components/Contact"
@@ -23,7 +25,7 @@ const Contacts = () => {
     return ( 
         <>
             <div id="contacts-container" className="container">
-
+            <div id="map"></div>
                 <h1>My Contacts</h1>
 
                 <div>

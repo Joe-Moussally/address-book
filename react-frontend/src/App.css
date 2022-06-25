@@ -122,3 +122,10 @@ h1 {
 .info-titles {
   font-weight: 600;
 }
+
+/*MAP CSS*/
+.map-container {
+  width: 400px;
+  height: 300px;
+  border: 2px red solid;
+}
