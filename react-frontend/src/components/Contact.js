@@ -13,7 +13,7 @@ const Contact = (props) => {
                 <div><span className="info-titles">-Relationship Status</span> <i>{props.info.status}</i></div>
             </div>
 
-            <iframe src={'https://maps.google.com/maps?q='+props.info.location.lg+','+props.info.location.lt+'&hl=en&z=14&amp;output=embed'} width="100%" height="250"></iframe>
+            <iframe src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250"></iframe>
             {/* <iframe 
   width="300" 
   height="170" 
