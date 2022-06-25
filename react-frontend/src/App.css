@@ -123,6 +123,39 @@ h1 {
   font-weight: 600;
 }
 
+#logout-btn {
+  width: 255px;
+  margin: 30px auto;
+  background: none;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  color: rgb(128, 0, 21);
+  text-decoration: underline;
+}
+
+#logout-btn:hover {
+  cursor: pointer;
+}
+
+#add-contact-btn {
+  width: 255px;
+  margin: 30px auto;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: navy;
+}
+
+#add-contact-btn:hover {
+  cursor: pointer;
+}
+
 /*MAP CSS*/
 .map-container {
   width: 400px;

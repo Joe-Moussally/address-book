@@ -26,6 +26,9 @@ const Contacts = () => {
             <div id="contacts-container" className="container">
                 <h1>My Contacts</h1>
 
+                <button id="add-contact-btn">Add Contact</button>
+                <button id="logout-btn">Log Out</button>                
+
                 <div>
                     {
                         contacts.map(contact => (
