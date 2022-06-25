@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import Contact from "../components/Contact"
+import LeafMap from "../components/LeafMap"
 
 const Contacts = () => {
 

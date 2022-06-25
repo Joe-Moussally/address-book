@@ -129,3 +129,8 @@ h1 {
   height: 300px;
   border: 2px red solid;
 }
+
+.leaflet-container {
+  height: 300px;
+  width: 100%;
+}
