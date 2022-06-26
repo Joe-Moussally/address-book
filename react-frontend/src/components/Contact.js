@@ -1,12 +1,15 @@
 const Contact = (props) => {
 
     let url = 'https://maps.google.com/maps?q='+props.info.location.lg+','+props.info.location.lt+'&hl=en&z=14&amp;output=embed'
-    console.log(document.getElementsByClassName('maps'))
+    console.log("AD")
     
     return ( 
-        <div className="contact-card">
+        <div className="contact-card" id={props.info._id}>
 
-            <h2>{props.info.name}</h2>
+            <div className="card-header">
+                <h2>{props.info.name}</h2>
+                <button>Remove Contact</button>
+            </div>
 
             <div className="info-container">
                 <div><span className="info-titles">-Email</span> <i>{props.info.email}</i></div>

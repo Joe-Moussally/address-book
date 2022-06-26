@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios'
 
 const Add = () => {
     const nav = useNavigate()
@@ -7,13 +8,44 @@ const Add = () => {
     useEffect(() => {
         //check if user is logged in
         const token = localStorage.getItem('token')
-        console.log(token)
         if(token == 'null'){
             nav('/login')
         }
-        console.log(token)
     },[])
 
+
+    //function to handle the sumbission and adding
+    //contact using the api
+    const handleSubmit = () => {
+        let name = document.getElementById('name').value
+        let email = document.getElementById('email').value
+        let number = document.getElementById('number').value
+        let status = document.getElementById('status').value
+
+        //check if inputs are empty
+        if(name==''||email==''||number=='') return
+
+        let body = {
+            "name": name,
+            "number": number,
+            "status": status,
+            "email": email,
+            "location": {
+                "lg": 123311.23,
+                "lt": 122884.21312
+            }
+        }
+        console.log(body)
+        
+        axios({
+            headers:{'authorization':localStorage.getItem('token')},
+            method:'POST',
+            data:body,
+            url:'http://localhost:27017/api/contact'
+        }).then((Response) => {
+            nav('/contacts')
+        })
+    }
 
     
     return ( 
@@ -30,15 +62,26 @@ const Add = () => {
                 </div>
 
                 <div className="input-container">
+                    <label>Email</label>
+                    <input id="email" type="email" placeholder="john@doe.com"></input>
+                </div>
+
+                <div className="input-container">
                     <label>Phone Number</label>
                     <input id="number" type="number" placeholder="70123456"></input>
                 </div>
 
                 <div className="input-container">
                     <label>Relationship Status</label>
-                    <input id="number" type="number" placeholder="70123456"></input>
+                    <select name="status" id="status">
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="complicated">Complicated</option>
+                    </select>
                 </div>
 
+                <button id="add-btn" onClick={handleSubmit}>Add Contact</button>
 
             </div>
         </>

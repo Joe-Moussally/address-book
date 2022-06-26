@@ -115,6 +115,28 @@ h1 {
   margin: 20px;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-header button {
+  color: crimson;
+  background: none;
+  border: 2px crimson solid;
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: .2s;
+}
+
+.card-header button:hover {
+  cursor: pointer;
+  transition: .2s;
+  color: white;
+  background-color: crimson;
+}
+
 .info-container {
   margin: 10px 0 0 30px;
 }
@@ -217,4 +239,34 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.input-container {
+  margin: 20px 40px;
+}
+
+.input-container label {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.input-container input, .input-container select {
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
+#add-btn {
+  width: 255px;
+  margin: 30px auto;
+  color: navy;
+  font-size: 22px;
+  font-weight: 600;
+  border: 2px navy solid;
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+#add-btn:hover {
+  cursor: pointer;
 }
