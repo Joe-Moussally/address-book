@@ -1,4 +1,5 @@
 import axios from 'axios'
+import LeafMap from '../pages/LeafMap'
 
 const Contact = (props) => {
 
@@ -40,17 +41,8 @@ const Contact = (props) => {
                 <div><span className="info-titles">-Relationship Status</span> <i>{props.info.status}</i></div>
             </div>
 
-            <iframe className="maps" src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250" frameBorder="0" scrolling="no"></iframe>
-            {/* <iframe 
-  width="300" 
-  height="170" 
-  frameborder="0" 
-  scrolling="no" 
-  marginheight="0" 
-  marginwidth="0" 
-  src="https://maps.google.com/maps?q='+YOUR_LAT+','+YOUR_LON+'&hl=es&z=14&amp;output=embed"
- >
- </iframe> */}
+            {/* <iframe className="maps" src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250" frameBorder="0" scrolling="no"></iframe> */}
+            <LeafMap position={[33.8938, 35.5018]}/>
 
         </div>
      );
