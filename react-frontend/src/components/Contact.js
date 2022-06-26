@@ -14,7 +14,10 @@ const Contact = (props) => {
             url:'http://localhost:27017/api/contact'
         }).then((Response) => {
             document.getElementById(id).classList.toggle('deleted')
-            document.getElementById(id).style.display = 'hidden'
+            setTimeout(()=>{
+                document.getElementById(id).style.display = 'none'
+            },300)
+            
         })
     }
     
