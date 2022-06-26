@@ -10,6 +10,9 @@ const Contacts = () => {
     const nav = useNavigate()
         
     const [contacts,setContacts] = useState([])
+    
+    //search value
+    const [searchValue,setSearchValue] = useState('')
 
 
     //fetch all contacts
@@ -28,10 +31,22 @@ const Contacts = () => {
             method:'GET',
             url: 'http://localhost:27017/api/contact'
         }).then((Response) => {
-            console.log(Response.data.contacts)
+            console.log('ASD')
             setContacts(Response.data.contacts)
         })
     },[])
+
+    const displayContacts = () => {
+        contacts.map(contact => (
+            <Contact info={contact} key={contact._id}/>
+        ))
+    }
+
+    //useEffect for each time the search value changes
+    useEffect(()=> {
+        console.log(searchValue)
+        displayContacts()
+    },[searchValue])
 
     if (contacts.length == 0) {
         return (
@@ -53,13 +68,22 @@ const Contacts = () => {
 
                 <h1>My Contacts</h1>
 
-                <input type="text" id="search" placeholder="Search Contacts"></input>
+                <input type="text" id="search" placeholder="Search Contacts"
+                onKeyUp={()=>setSearchValue(document.getElementById('search').value)}
+                ></input>
 
-                <div>
+                <div id="contacts-cards-container">
                     {
-                        contacts.map(contact => (
-                            <Contact info={contact} key={contact._id}/>
-                        ))
+                        contacts.map(contact => {
+                            if(searchValue == '') {
+                                return <Contact info={contact} key={contact._id}/>
+                            }
+                            if (contact.name.includes(searchValue)) {
+                                console.log("HERE")
+                                return <Contact info={contact} key={contact._id}/>
+                            }
+                            
+                        })
                     }
                 </div>
 
