@@ -272,6 +272,13 @@ input[type=number] {
 
 /*DELETE ANIMATION*/
 .deleted {
-  transition: .3s;
-  opacity: 0;
+  transition: .3s ;
+  animation: delete-animation .3s ease;
+  /* opacity: 0; */
+  transform: translateY(20px);
+}
+
+@keyframes delete-animation {
+  from {transform: translateX(0px);}
+  to {transform: translateX(1500px);}
 }
