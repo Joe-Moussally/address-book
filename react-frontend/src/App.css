@@ -252,6 +252,7 @@ input[type=number] {
 .input-container input, .input-container select {
   padding: 5px 10px;
   font-size: 17px;
+  color: black;
 }
 
 #add-btn {
@@ -303,4 +304,18 @@ input[type=number] {
   color: crimson;
   font-weight: 600;
   margin: 0 auto;
+}
+
+#search {
+  width: 300px;
+  margin: 0 auto;
+  padding: 6px;
+  font-size: 19px;
+  border: 1px navy solid;
+  border-radius: 7px;
+}
+
+#search:focus {
+  outline: 2px rgba(0, 0, 128, 0.34) solid;
+  border-radius: 7px;
 }

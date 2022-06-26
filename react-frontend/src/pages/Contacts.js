@@ -53,6 +53,8 @@ const Contacts = () => {
 
                 <h1>My Contacts</h1>
 
+                <input type="text" id="search" placeholder="Search Contacts"></input>
+
                 <div>
                     {
                         contacts.map(contact => (

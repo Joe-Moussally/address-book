@@ -10,7 +10,9 @@ const Contact = (props) => {
         axios({
             headers:{'authorization':localStorage.getItem('token')},
             method:'DELETE',
-            body:id,
+            data:{
+                'id':id
+            },
             url:'http://localhost:27017/api/contact'
         }).then((Response) => {
             document.getElementById(id).classList.toggle('deleted')

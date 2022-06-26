@@ -1,5 +1,6 @@
 const Contact = require('../../models/Contact')
 const jwt = require('jsonwebtoken')
+const { ObjectId } = require('mongodb')
 const secret = process.env.TOKEN_SECRET
 
 async function add(body,headers) {
@@ -31,7 +32,7 @@ async function getContacts(userId) {
 }
 
 async function remove(contactId) {
-    return Contact.deleteOne(contactId)
+    return Contact.deleteOne({_id: ObjectId(contactId)})
 }
  
 module.exports = {

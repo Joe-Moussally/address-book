@@ -40,6 +40,7 @@ async function deleteContact(req,res) {
     try {
         const contactId = req.body.id
         const result = await remove(contactId)
+        console.log(contactId)
 
         return res.status(200).send({
             response: result
