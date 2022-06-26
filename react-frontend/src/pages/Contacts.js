@@ -10,14 +10,16 @@ const Contacts = () => {
         
     const [contacts,setContacts] = useState([])
 
+
     //fetch all contacts
     useEffect(()=>{
-
+        //check if user is logged in
         const token = localStorage.getItem('token')
-
-        if(!token){
-            nav('/')
+        console.log(token)
+        if(token == 'null'){
+            nav('/login')
         }
+
         axios({
             headers:{
                 authorization: token
@@ -40,7 +42,7 @@ const Contacts = () => {
             <div id="contacts-container" className="container">
                 <h1>My Contacts</h1>
 
-                <button id="add-contact-btn">Add Contact</button>
+                <button id="add-contact-btn" onClick={() => nav('/add')}>Add Contact</button>
                 <button id="logout-btn" onClick={handleLogout}>Log Out</button>                
 
                 <div>
