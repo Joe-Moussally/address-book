@@ -200,3 +200,21 @@ h1 {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/*Removing arrows from input number*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

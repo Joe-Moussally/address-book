@@ -24,6 +24,21 @@ const Add = () => {
                     <h1>Add New Contacts</h1>
                 </div>
 
+                <div className="input-container">
+                    <label>Full Name</label>
+                    <input id="name" type="text" placeholder="John Doe"></input>
+                </div>
+
+                <div className="input-container">
+                    <label>Phone Number</label>
+                    <input id="number" type="number" placeholder="70123456"></input>
+                </div>
+
+                <div className="input-container">
+                    <label>Relationship Status</label>
+                    <input id="number" type="number" placeholder="70123456"></input>
+                </div>
+
 
             </div>
         </>
