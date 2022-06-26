@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Contact from "../components/Contact"
 import Nav from "../components/Nav"
-import LeafMap from "../components/LeafMap"
 
 const Contacts = () => {
 

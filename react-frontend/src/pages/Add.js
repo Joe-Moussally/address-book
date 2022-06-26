@@ -2,6 +2,12 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
+//importing leaflet dependencies
+import { MapContainer, TileLayer, Marker, Popup, useMapEvent } from 'react-leaflet';
+import L from 'leaflet'
+import { map } from "leaflet";
+
+
 const Add = () => {
     const nav = useNavigate()
 
@@ -47,6 +53,15 @@ const Add = () => {
         })
     }
 
+    function MyComponent() {
+        const map = useMapEvent({
+          click: (e) => {
+            const { lat, lng } = e.latlng;
+            L.marker([lat, lng]).addTo(map);
+          }
+        });
+        return null;
+    }
     
     return ( 
         <>
@@ -79,6 +94,19 @@ const Add = () => {
                         <option value="divorced">Divorced</option>
                         <option value="complicated">Complicated</option>
                     </select>
+                </div>
+
+                <div className="input-container">
+                <label>Location</label>
+
+                <MapContainer  center={[0,0]} zoom={1}scrollWheelZoom={false} id="leafmap">
+                    <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    />
+                    <Marker position={[0,0]} draggable={true}/>
+                    <MyComponent />
+                </MapContainer>
                 </div>
 
                 <button id="add-btn" onClick={handleSubmit}>Add Contact</button>
