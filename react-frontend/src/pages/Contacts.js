@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Contact from "../components/Contact"
+import Nav from "../components/Nav"
 import LeafMap from "../components/LeafMap"
 
 const Contacts = () => {
@@ -32,18 +33,12 @@ const Contacts = () => {
         })
     },[])
 
-    const handleLogout = () => {
-        nav('/login')
-        localStorage.setItem('token',null)
-    }
-
     return ( 
         <>
+            <Nav />
             <div id="contacts-container" className="container">
-                <h1>My Contacts</h1>
 
-                <button id="add-contact-btn" onClick={() => nav('/add')}>Add Contact</button>
-                <button id="logout-btn" onClick={handleLogout}>Log Out</button>                
+                <h1>My Contacts</h1>
 
                 <div>
                     {

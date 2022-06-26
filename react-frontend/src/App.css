@@ -282,3 +282,19 @@ input[type=number] {
   from {transform: translateX(0px);}
   to {transform: translateX(1500px);}
 }
+
+/*NAVBAR*/
+#nav-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0px 10px 10px rgba(128, 128, 128, 0.182);
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+}
+
+#contacts-container {
+  transform: translateY(70px);
+}
