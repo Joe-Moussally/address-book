@@ -17,6 +17,7 @@ async function register(req, res) {
         if(oldUser) {
             return res.status(409).send('email already exists')
         }
+        console.log(req.body)
 
         const salt = await bcrypt.genSalt(5)
         const hashPassword = await bcrypt.hash(req.body.password,salt)

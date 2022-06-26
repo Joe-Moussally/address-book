@@ -33,6 +33,19 @@ const Contacts = () => {
         })
     },[])
 
+    if (contacts.length == 0) {
+        return (
+            <>
+                <Nav />
+                <div id="contacts-container" className="container">
+                    <h1>My Contacts</h1>
+
+                    <h2>You don't have any contacts yet, start by adding a contact</h2>
+                </div>
+            </>
+        )
+    }
+
     return ( 
         <>
             <Nav />

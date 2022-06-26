@@ -7,10 +7,11 @@ const Signup = () => {
 
     const handleSignup = () => {
         let email = document.getElementById('email').value
+        let name = document.getElementById('name').value
         let p1 = document.getElementById('p1').value
         let p2 = document.getElementById('p2').value
 
-        if(email==''|| p1==''|| p2=='') {
+        if(email==''|| p1==''|| p2==''||name=='') {
             document.getElementById('status').innerHTML="Please fill all fields"
             setTimeout(
                 () => document.getElementById('status').innerHTML=""
@@ -26,15 +27,18 @@ const Signup = () => {
         
         let body = {
             email:email,
-            password: p1
+            password: p1,
+            name:name
         }
-
+        console.log(body)
         axios({
             method: 'POST',
-            body: body,
+            data: body,
             url: 'http://localhost:27017/api/user/register'
         }).then((Response) =>{
             console.log(Response.data)
+            localStorage.setItem('token',Response.data.token)
+            nav('/contacts')
         })
     }
 
@@ -43,6 +47,7 @@ const Signup = () => {
             <h1>Sign Up</h1>
             <div id='status'></div>
             <input id="email" type='email' placeholder="example@mail.com"></input>
+            <input type="text" placeholder="Username" id="name"></input>
             <input id="p1" type='password' placeholder="password"></input>
             <input id="p2" type='password' placeholder="password"></input>
 
