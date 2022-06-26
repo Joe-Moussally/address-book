@@ -13,7 +13,8 @@ const Contact = (props) => {
             body:id,
             url:'http://localhost:27017/api/contact'
         }).then((Response) => {
-            console.log(Response.data)
+            document.getElementById(id).classList.toggle('deleted')
+            document.getElementById(id).style.display = 'hidden'
         })
     }
     
