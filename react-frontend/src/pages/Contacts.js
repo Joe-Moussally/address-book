@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Contact from "../components/Contact"
 import Nav from "../components/Nav"
-import LeafMap from "./LeafMap"
+import LeafMap from "../components/LeafMap"
 
 const Contacts = () => {
 
@@ -52,7 +52,6 @@ const Contacts = () => {
         return (
             <>
                 <Nav />
-                <LeafMap position={[33.8938, 35.5018]}/>
                 <div id="contacts-container" className="container">
                     <h1>My Contacts</h1>
 
@@ -65,7 +64,6 @@ const Contacts = () => {
     return ( 
         <>
             <Nav />
-            <LeafMap position={[33.8938, 35.5018]}/>
             <div id="contacts-container" className="container">
 
                 <h1>My Contacts</h1>
@@ -81,7 +79,6 @@ const Contacts = () => {
                                 return <Contact info={contact} key={contact._id}/>
                             }
                             if (contact.name.includes(searchValue)) {
-                                console.log("HERE")
                                 return <Contact info={contact} key={contact._id}/>
                             }
                         })

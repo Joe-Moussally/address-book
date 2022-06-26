@@ -1,5 +1,6 @@
 import axios from 'axios'
-import LeafMap from '../pages/LeafMap'
+import { useState } from 'react'
+import LeafMap from './LeafMap'
 
 const Contact = (props) => {
 
@@ -42,7 +43,7 @@ const Contact = (props) => {
             </div>
 
             {/* <iframe className="maps" src={'https://maps.google.com/maps?q=' + props.info.location.lt + ',' + props.info.location.lg + '&t=&z=15&ie=UTF8&iwloc=&output=embed'} width="100%" height="250" frameBorder="0" scrolling="no"></iframe> */}
-            <LeafMap position={[33.8938, 35.5018]}/>
+            <LeafMap position={[props.info.location.lg, props.info.location.lt]}/>
 
         </div>
      );
