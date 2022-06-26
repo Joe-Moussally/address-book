@@ -48,7 +48,7 @@ const Login = () => {
                 <span id="or-span"></span>
             </div>
 
-            <button id="go-to-signup-btn">Sign Up</button>
+            <button id="go-to-signup-btn" onClick={()=>nav('/signup')}>Sign Up</button>
         </div>
      );
 }

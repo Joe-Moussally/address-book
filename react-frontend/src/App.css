@@ -298,3 +298,9 @@ input[type=number] {
 #contacts-container {
   transform: translateY(70px);
 }
+
+#status {
+  color: crimson;
+  font-weight: 600;
+  margin: 0 auto;
+}
