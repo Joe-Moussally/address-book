@@ -1,14 +1,31 @@
+import axios from 'axios'
+
 const Contact = (props) => {
 
     let url = 'https://maps.google.com/maps?q='+props.info.location.lg+','+props.info.location.lt+'&hl=en&z=14&amp;output=embed'
-    console.log("AD")
+
+    //function that removes the contacts selected
+    const handleRemove = (e) => {
+        let id = e.target.id
+        axios({
+            headers:{'authorization':localStorage.getItem('token')},
+            method:'DELETE',
+            body:id,
+            url:'http://localhost:27017/api/contact'
+        }).then((Response) => {
+            console.log(Response.data)
+        })
+    }
     
     return ( 
         <div className="contact-card" id={props.info._id}>
 
             <div className="card-header">
                 <h2>{props.info.name}</h2>
-                <button>Remove Contact</button>
+                <button
+                id={props.info._id}
+                onClick={handleRemove}
+                >Remove Contact</button>
             </div>
 
             <div className="info-container">

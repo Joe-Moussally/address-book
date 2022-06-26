@@ -29,8 +29,13 @@ async function add(body,headers) {
 async function getContacts(userId) {
     return Contact.find({userId: userId})
 }
+
+async function remove(contactId) {
+    return Contact.deleteOne(contactId)
+}
  
 module.exports = {
     add,
-    getContacts
+    getContacts,
+    remove
   }

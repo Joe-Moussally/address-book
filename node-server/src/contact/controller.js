@@ -4,7 +4,7 @@ const Contact = require('../../models/Contact')
 const secret = process.env.TOKEN_SECRET
 const jwt = require('jsonwebtoken')
 
-const { add,getContacts } = require('./service')
+const { add,getContacts,remove } = require('./service')
 
 //add contact for a user
 async function addContact(req, res) {
@@ -36,7 +36,21 @@ async function getAllContacts(req,res) {
     }
 }
 
+async function deleteContact(req,res) {
+    try {
+        const contactId = req.body.id
+        const result = await remove(contactId)
+
+        return res.status(200).send({
+            response: result
+        })
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 module.exports = {
     addContact,
-    getAllContacts
+    getAllContacts,
+    deleteContact
 }
