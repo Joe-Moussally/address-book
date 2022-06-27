@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios'
 
@@ -10,6 +10,11 @@ import { map } from "leaflet";
 
 const Add = () => {
     const nav = useNavigate()
+
+    const [position,setPosition] = useState([])
+
+    //track is marker is already on the map
+    const[added,setAdded]=useState(false)
 
     useEffect(() => {
         //check if user is logged in
@@ -53,11 +58,26 @@ const Add = () => {
         })
     }
 
+    var marker
+
     function MyComponent() {
         const map = useMapEvent({
           click: (e) => {
-            const { lat, lng } = e.latlng;
-            L.marker([lat, lng]).addTo(map);
+            setPosition(e.latlng)
+            console.log(position)
+
+            if(!added) {
+                marker = new L.marker(e.latlng, {draggable:true}).addTo(map);
+                setAdded(true)
+                marker.on('dragend',(e)=>{
+                    setPosition(e.target._latlng)
+                    console.log(e.target._latlng.lng)
+                    document.getElementById('lng').innerHTML = e.target._latlng.lng
+                    document.getElementById('lat').innerHTML = e.target._latlng.lat
+                })
+            }
+            
+
           }
         });
         return null;
@@ -104,9 +124,19 @@ const Add = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    <Marker position={[0,0]} draggable={true}/>
+                    {/* <Marker position={[0,0]} draggable={true}/> */}
                     <MyComponent />
                 </MapContainer>
+                    <div id="position-display-container">
+                        <div id="lng-container">
+                           <label>Longitude:</label> 
+                           <span id="lng"></span>
+                        </div>
+                        <div id="lat-container">
+                           <label>Latitude:</label> 
+                           <span id="lat"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <button id="add-btn" onClick={handleSubmit}>Add Contact</button>
