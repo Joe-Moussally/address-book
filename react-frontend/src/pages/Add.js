@@ -32,7 +32,8 @@ const Add = () => {
         let email = document.getElementById('email').value
         let number = document.getElementById('number').value
         let status = document.getElementById('status').value
-
+        let lg = document.getElementById('lng').innerHTML
+        let lt = document.getElementById('lat').innerHTML
         //check if inputs are empty
         if(name==''||email==''||number=='') return
 
@@ -42,8 +43,8 @@ const Add = () => {
             "status": status,
             "email": email,
             "location": {
-                "lg": 123311.23,
-                "lt": 122884.21312
+                "lg": lg,
+                "lt": lt
             }
         }
         console.log(body)

@@ -15,7 +15,7 @@ const LeafMap = (props) => {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             />
             <Marker 
-            position={[33.8938, 35.5018]}/>
+            position={center}/>
         </MapContainer>
     //   </div>
      );
